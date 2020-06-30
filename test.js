@@ -1,4 +1,9 @@
 
+/**
+ *@desc 'QUnit test for Distance Method, range of difference is -5 to 10
+ *
+ */
+
 QUnit.test("Valuecheck for Distance Nr 1",
     function (assert) {
         var B1P1 = [7.364959716796874, 51.94130190984729];
@@ -7,9 +12,108 @@ QUnit.test("Valuecheck for Distance Nr 1",
 
         var turffunc = Math.round((turf.distance(B1P1, B1P2) * 1000)); //*1000, because turffunc returns a value in km and myfunc a value in m
         var d = myfunc - turffunc;
-        console.log("d1:"+d);
-  console.log("dmyfunc1:"+myfunc);
-  console.log("dturffunc1:"+turffunc);
+        console.log("d1:" + d);
+        console.log("dmyfunc1:" + myfunc);
+        console.log("dturffunc1:" + turffunc);
+        if (d <= 10 && d >= -5) {
+            assert.ok(true);
+        }
+        else { assert.ok(false) }
+
+
+    },
+
+
+);
+
+
+/**
+ *@desc 'QUnit test for Distance Method, range of difference is -5 to 10
+ *
+ */
+
+
+
+QUnit.test("Valuecheck for Distance Nr 2", function (assert) {
+    var B2P1 = [7.540740966796875, 51.991222950124396];
+    var B2P2 = [7.678756713867187, 51.98107402257654];
+    var myfunc = Math.round(distance(change(B2P1), change(B2P2)));
+
+    var turffunc = Math.round((turf.distance(B2P1, B2P2) * 1000)); //*1000, because turffunc returns a value in km and myfunc a value in m
+    var d = myfunc - turffunc;
+    console.log("d2:" + d);
+    console.log("dmyfunc2:" + myfunc);
+    console.log("dturffunc2:" + turffunc);
+    if (d <= 10 && d >= -5) {
+        assert.ok(true);
+    }
+    else { assert.ok(false) }
+
+
+});
+
+/**
+ *@desc 'QUnit test for Distance Method, range of difference is -5 to 10
+ *
+ */
+
+
+QUnit.test("Valuecheck for Distance Nr 3", function (assert) {
+    var B3P1 = [7.627258300781249,  52.12337138625387];
+    var B3P2 = [7.6938629150390625,52.127165400871284];
+    var myfunc = Math.round(distance(change(B3P1), change(B3P2)));
+
+    var turffunc = Math.round((turf.distance(B3P1, B3P2) * 1000)); //*1000, because turffunc returns a value in km and myfunc a value in m
+    var d = myfunc - turffunc;
+    console.log("d3:" + d);
+    console.log("dmyfunc3:" + myfunc);
+    console.log("dturffunc3:" + turffunc);
+    if (d <= 10 && d >= -5) {
+        assert.ok(true);
+    }
+    else { assert.ok(false) }
+
+
+});
+
+/**
+ *@desc 'QUnit test for Distance Method, range of difference is -5 to 10
+ *returns false because the difference of the values are to big
+ */
+
+QUnit.test("Valuecheck for Distance Nr 4, returns false because the difference (over 400, see console) of the values are to big", function (assert) {
+    var B4P1 = [362.801513671875, 13.859413869074032];
+    var B4P2 = [355.1824951171875, 12.221917732187263];
+    var myfunc = Math.round(distance(change(B4P1), change(B4P2)));
+
+    var turffunc = Math.round((turf.distance(B4P1, B4P2) * 1000)); //*1000, because turffunc returns a value in km and myfunc a value in m
+    var d = myfunc - turffunc;
+    console.log("d4:" + d);
+    console.log("dmyfunc4:" + myfunc);
+    console.log("dturffunc4:" + turffunc);
+    if (d <= 10 && d >= -5) {
+        assert.ok(true);
+    }
+    else { assert.ok(false) }
+
+
+});
+
+/**
+ *@desc 'QUnit test for bearing Method, range of difference is -5 to 10
+ *
+ */
+QUnit.test("Valuecheck for Bearing Nr 1",
+    function (assert) {
+        var B1P1 = [7.364959716796874, 51.94130190984729];
+        var B1P2 = [7.452850341796876, 51.921402619223514];
+        var myfunc = Math.round(bearing(change(B1P1), change(B1P2)));
+
+        var turffunc = Math.round((turf.bearing(B1P1, B1P2)));
+        var d = myfunc - turffunc;
+        console.log("b1:" + d);
+        console.log("bmyfunc1:" + myfunc);
+        console.log("bturffunc1:" + turffunc);
         if (d <= 10 && d >= -5) {
             assert.ok(true);
         }
@@ -23,168 +127,84 @@ QUnit.test("Valuecheck for Distance Nr 1",
 
 
 
+/**
+  *@desc 'QUnit test for bearing Method, range of difference is -5 to 10
+  *
+  */
 
 
+QUnit.test("Valuecheck for Bearing Nr 2", function (assert) {
+    var B2P1 = [7.540740966796875, 51.991222950124396];
+    var B2P2 = [7.678756713867187, 51.98107402257654];
+    var myfunc = Math.round(bearing(change(B2P1), change(B2P2)));
 
-  QUnit.test( "Valuecheck for Distance Nr 2", function( assert ) {
-    var B2P1 = [7.540740966796875,51.991222950124396];
-    var B2P2 = [ 7.678756713867187, 51.98107402257654      ];
-    var myfunc = Math.round(distance(change(B2P1),  change(B2P2)));
-
-        var turffunc =  Math.round((turf.distance(B2P1,B2P2)*1000));
-  var d = myfunc - turffunc;
-  console.log("d2:"+d);
-  console.log("dmyfunc2:"+myfunc);
-  console.log("dturffunc2:"+turffunc);
-      if(d<=10 && d>=-5){
-         assert.ok( true);
-      }
-      else{assert.ok(false)}
-              
-  
-  });
+    var turffunc = Math.round((turf.bearing(B2P1, B2P2)));
+    var d = myfunc - turffunc;
+    console.log("b2:" + d);
+    console.log("bmyfunc2:" + myfunc);
+    console.log("bturffunc2:" + turffunc);
+    if (d <= 10 && d >= -5) {
+        assert.ok(true);
+    }
+    else { assert.ok(false) }
 
 
- 
+});
 
-  QUnit.test( "Valuecheck for Distance Nr 3", function( assert ) {
+/**
+  *@desc 'QUnit test for bearing Method, range of difference is -5 to 10
+  *
+  */
+
+
+QUnit.test("Valuecheck for Bearing Nr 3", function (assert) {
     var B3P1 = [
         7.627258300781249,
         52.12337138625387
-      ];
+    ];
     var B3P2 = [
         7.6938629150390625,
         52.127165400871284
-      ];
-    var myfunc = Math.round(distance(change(B3P1),  change(B3P2)));
-
-        var turffunc =  Math.round((turf.distance(B3P1,B3P2)*1000));
-  var d = myfunc - turffunc;
-  console.log("d3:"+d);
-  console.log("dmyfunc3:"+myfunc);
-  console.log("dturffunc3:"+turffunc);
-      if(d<=10 && d>=-5){
-         assert.ok( true);
-      }
-      else{assert.ok(false)}
-              
-  
-  });
-
-
-
-  QUnit.test( "Valuecheck for Distance Nr 4", function( assert ) {
-    var B4P1 =             [362.801513671875,  13.859413869074032 ];
-    var B4P2 =          [ 355.1824951171875, 12.221917732187263 ];
-    var myfunc = Math.round(distance(change(B4P1),  change(B4P2)));
-
-        var turffunc =  Math.round((turf.distance(B4P1,B4P2)*1000));
-  var d = myfunc - turffunc;
-  console.log("d4:"+d);
-  console.log("dmyfunc4:"+myfunc);
-  console.log("dturffunc4:"+turffunc);
-      if(d<=10 && d>=-5){
-         assert.ok( true);
-      }
-      else{assert.ok(false)}
-              
-  
-  });
-
-
-  QUnit.test("Valuecheck for Bearing Nr 1",
-  function (assert) {
-      var B1P1 = [7.364959716796874, 51.94130190984729];
-      var B1P2 = [7.452850341796876, 51.921402619223514];
-      var myfunc = Math.round(bearing(change(B1P1), change(B1P2)));
-
-      var turffunc = Math.round((turf.bearing(B1P1, B1P2)));
-      var d = myfunc - turffunc;
-      console.log("b1:"+d);
-  console.log("bmyfunc1:"+myfunc);
-  console.log("bturffunc1:"+turffunc);
-      if (d <= 10 && d >= -5) {
-          assert.ok(true);
-      }
-      else { assert.ok(false) }
-
-
-  },
-
-
-);
-
-
-
-
-
-
-QUnit.test( "Valuecheck for Bearing Nr 2", function( assert ) {
-  var B2P1 = [7.540740966796875,51.991222950124396];
-  var B2P2 = [ 7.678756713867187, 51.98107402257654      ];
-  var myfunc = Math.round(bearing(change(B2P1),  change(B2P2)));
-
-      var turffunc =  Math.round((turf.bearing(B2P1,B2P2)));
-var d = myfunc - turffunc;
-console.log("b2:"+d);
-console.log("bmyfunc2:"+myfunc);
-console.log("bturffunc2:"+turffunc);
-    if(d<=10 && d>=-5){
-       assert.ok( true);
-    }
-    else{assert.ok(false)}
-            
-
-});
-
-
-
-
-QUnit.test( "Valuecheck for Bearing Nr 3", function( assert ) {
-  var B3P1 = [
-      7.627258300781249,
-      52.12337138625387
     ];
-  var B3P2 = [
-      7.6938629150390625,
-      52.127165400871284
-    ];
-  var myfunc = Math.round(bearing(change(B3P1),  change(B3P2)));
+    var myfunc = Math.round(bearing(change(B3P1), change(B3P2)));
 
-      var turffunc =  Math.round((turf.bearing(B3P1,B3P2)));
-var d = myfunc - turffunc;
-console.log("b3:"+d);
-console.log("bmyfunc3:"+myfunc);
-console.log("bturffunc3:"+turffunc);
-    if(d<=10 && d>=-5){
-       assert.ok( true);
+    var turffunc = Math.round((turf.bearing(B3P1, B3P2)));
+    var d = myfunc - turffunc;
+    console.log("b3:" + d);
+    console.log("bmyfunc3:" + myfunc);
+    console.log("bturffunc3:" + turffunc);
+    if (d <= 10 && d >= -5) {
+        assert.ok(true);
     }
-    else{assert.ok(false)}
-            
+    else { assert.ok(false) }
+
+
+});
+
+/**
+  *@desc 'QUnit test for bearing Method, range of difference is -5 to 10
+  *
+  */
+
+QUnit.test("Valuecheck for Bearing Nr 4", function (assert) {
+    var B4P1 = [362.801513671875, 13.859413869074032];
+    var B4P2 = [355.1824951171875, 12.221917732187263];
+    var myfunc = Math.round(bearing(change(B4P1), change(B4P2)));
+
+    var turffunc = Math.round((turf.bearing(B4P1, B4P2)));
+    var d = myfunc - turffunc;
+    console.log("b4:" + d);
+    console.log("bmyfunc4:" + myfunc);
+    console.log("bturffunc4:" + turffunc);
+    if (d <= 10 && d >= -5) {
+        assert.ok(true);
+    }
+    else { assert.ok(false) }
+
 
 });
 
 
-
-QUnit.test( "Valuecheck for Bearing Nr 4", function( assert ) {
-  var B4P1 =             [362.801513671875,  13.859413869074032 ];
-  var B4P2 =          [ 355.1824951171875, 12.221917732187263 ];
-  var myfunc = Math.round(bearing(change(B4P1),  change(B4P2)));
-
-      var turffunc =  Math.round((turf.bearing(B4P1,B4P2)));
-var d = myfunc - turffunc;
-console.log("b4:"+d);
-console.log("bmyfunc4:"+myfunc);
-console.log("bturffunc4:"+turffunc);
-    if(d<=10 && d>=-5){
-       assert.ok( true);
-    }
-    else{assert.ok(false)}
-            
-
-});
-
- 
 
 
 
@@ -279,62 +299,62 @@ function bearing(p1, p2) {
         Math.sin(a1) * Math.cos(a2) * Math.cos(toRadial(p2[0] - p1[0]));
     var brng = todegree(Math.atan2(y, x));
 
-return brng;
+    return brng;
 
 
 
-/*
-    // If Clauses, to return the right strings
-
-    if (brng >= 0) {  //brng is positive (N, NE, E, SE, S)
-
-        if (brng <= 22.5 && brng >= 0) {
-
-            return "N";
+    /*
+        // If Clauses, to return the right strings
+    
+        if (brng >= 0) {  //brng is positive (N, NE, E, SE, S)
+    
+            if (brng <= 22.5 && brng >= 0) {
+    
+                return "N";
+            }
+            if (brng <= 67.5 && brng >= 22.5) {
+    
+                return "NE";
+            }
+            if (brng <= 112.5 && brng >= 67.5) {
+    
+                return "E";
+            }
+            if (brng <= 157.5 && brng >= 112.5) {
+    
+                return "SE";
+            }
+            if (brng <= 180 && brng >= 157.5) {
+    
+                return "S";
+            }
+    
         }
-        if (brng <= 67.5 && brng >= 22.5) {
-
-            return "NE";
+    
+        else { //brng is negative (N,NW,W,SW,S)
+    
+            if (brng >= 0 && brng <= -22.5) {
+    
+                return "N";
+            }
+            if (brng >= -67.5 & brng <= -22.5) {
+    
+                return "NW";
+            }
+            if ((brng >= -112.5) & (brng <= -67.5)) {
+    
+                return "W";
+            }
+            if (brng >= -157.5 & brng <= -112.5) {
+    
+                return "SW";
+            }
+            if (brng >= -180 && brng <= -157.5) {
+    
+                return "S";
+            }
         }
-        if (brng <= 112.5 && brng >= 67.5) {
-
-            return "E";
-        }
-        if (brng <= 157.5 && brng >= 112.5) {
-
-            return "SE";
-        }
-        if (brng <= 180 && brng >= 157.5) {
-
-            return "S";
-        }
-
-    }
-
-    else { //brng is negative (N,NW,W,SW,S)
-
-        if (brng >= 0 && brng <= -22.5) {
-
-            return "N";
-        }
-        if (brng >= -67.5 & brng <= -22.5) {
-
-            return "NW";
-        }
-        if ((brng >= -112.5) & (brng <= -67.5)) {
-
-            return "W";
-        }
-        if (brng >= -157.5 & brng <= -112.5) {
-
-            return "SW";
-        }
-        if (brng >= -180 && brng <= -157.5) {
-
-            return "S";
-        }
-    }
-*/
+    */
 
 
 }
