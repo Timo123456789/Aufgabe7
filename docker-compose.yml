@@ -2,6 +2,7 @@ version: "3"
 services:
   app:
     #build: .
+    #use URL to navigate docker-compose up to the right repository
     image: timo11235813/aufgabe07
     ports:
       - "3000:3000" # forward webserver on standard-http port
