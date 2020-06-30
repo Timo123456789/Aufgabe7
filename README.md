@@ -7,3 +7,5 @@ Geosoftware Assignment 7
 Path to Dockerhub:
 
 https://hub.docker.com/repository/docker/timo11235813/aufgabe07
+
+Authors: Judith Bresser, Timo Lietmeyer
